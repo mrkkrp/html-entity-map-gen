@@ -1,0 +1,32 @@
+name:                 html-entity-map-gen
+version:              0.0.1.0
+cabal-version:        >= 1.18
+tested-with:          GHC==8.0.2
+license:              BSD3
+license-file:         LICENSE.md
+author:               Mark Karpov <markkarpov92@gmail.com>
+maintainer:           Mark Karpov <markkarpov92@gmail.com>
+homepage:             https://github.com/mrkkrp/html-entity-map-gen
+bug-reports:          https://github.com/mrkkrp/html-entity-map-gen/issues
+category:             Tools
+synopsis:             A tool to generate code for the html-entity-map library
+build-type:           Simple
+description:          A tool to generate code for the html-entity-map library.
+extra-doc-files:      CHANGELOG.md
+                    , README.md
+
+source-repository head
+  type:               git
+  location:           https://github.com/mrkkrp/html-entity-map-gen.git
+
+executable html-entity-map-gen
+  main-is:            Main.hs
+  hs-source-dirs:     app
+  build-depends:      aeson
+                    , base
+                    , containers
+                    , data-default-class
+                    , req
+                    , text
+  ghc-options:        -O2 -Wall
+  default-language:   Haskell2010
