@@ -12,19 +12,19 @@ import Network.HTTP.Req
 import qualified Data.Map.Strict as M
 import qualified Data.Text       as T
 
-newtype CodePoint = CodePoint Char
+newtype CodePoints = CodePoint Text
 
-instance Show CodePoint where
-  show (CodePoint ch) = show ch
+instance Show CodePoints where
+  show (CodePoint txt) = show txt
 
-instance FromJSON CodePoint where
+instance FromJSON CodePoints where
   parseJSON = withObject "entity definition" $ \o ->
-    CodePoint . chr . head  <$> (o .: "codepoints")
+    CodePoint . T.pack . fmap chr <$> (o .: "codepoints")
 
 main :: IO ()
 main = do
   r <- runReq def $ req GET whatwgEntities NoReqBody jsonResponse mempty
-  print (M.mapKeys normalizeName (responseBody r) :: Map Text CodePoint)
+  print (M.mapKeys normalizeName (responseBody r) :: Map Text CodePoints)
 
 normalizeName :: Text -> Text
 normalizeName name = g (f name)
