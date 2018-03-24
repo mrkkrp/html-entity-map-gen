@@ -1,5 +1,0 @@
-resolver: lts-9.20
-packages:
-- '.'
-extra-deps:
-- req-1.0.0

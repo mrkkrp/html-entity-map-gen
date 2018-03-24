@@ -1,7 +1,7 @@
 name:                 html-entity-map-gen
 version:              0.0.1.0
-cabal-version:        >= 1.18
-tested-with:          GHC==8.0.2
+cabal-version:        1.18
+tested-with:          GHC==8.0.2, GHC==8.2.2, GHC==8.4.1
 license:              BSD3
 license-file:         LICENSE.md
 author:               Mark Karpov <markkarpov92@gmail.com>
@@ -23,10 +23,10 @@ executable html-entity-map-gen
   main-is:            Main.hs
   hs-source-dirs:     app
   build-depends:      aeson
-                    , base
-                    , containers
+                    , base                >= 4.9 && < 5.0
+                    , containers          >= 0.5 && < 0.6
                     , data-default-class
-                    , req
-                    , text
+                    , req                 >= 1.0 && < 2.0
+                    , text                >= 0.2 && < 1.3
   ghc-options:        -O2 -Wall
   default-language:   Haskell2010

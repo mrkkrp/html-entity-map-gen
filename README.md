@@ -4,7 +4,7 @@ The tool fetches the map of HTML5 entities from here:
 
 https://html.spec.whatwg.org/entities.json
 
-And outputs Haskell code that can be used to construct a `Map Text Char`
+And outputs Haskell code that can be used to construct a `Map Text Text`
 from that. This is used in this library:
 
 https://github.com/mrkkrp/html-entity-map
